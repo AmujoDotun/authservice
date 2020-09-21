@@ -16,21 +16,23 @@ Run php -S localhost:8000 -t public
 
 localhost:8000/api/register
 
-params : {
-    name,
-    email,
-    password
+```json
+ params:{
+     "name": "Dotun",
+    "email": "dotun@gmail.com",
+    "password": "dotun"
     
 }
+```
 
 
 # Login endpoint
 
 localhost:8000/api/login
 ```json
-params : {
-    'email': 'Dotun',
-    'password': 'dotun'
+ params:{
+    "email": "dotun@gmail.com",
+    "password": "dotun"
     
 }
 ```
