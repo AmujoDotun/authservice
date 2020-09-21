@@ -27,12 +27,14 @@ params : {
 # Login endpoint
 
 localhost:8000/api/login
-
+```json
 params : {
     email,
     password
     
 }
+```
+
 
 
 
