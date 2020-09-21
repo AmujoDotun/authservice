@@ -27,7 +27,35 @@ $app->withFacades();
 
 $app->withEloquent();
 
+
+// Enable auth middleware (shipped with Lumen)
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+]);
+
+// Finally register two service providers - original one and Lumen adapter
+// $app->register(Laravel\Passport\PassportServiceProvider::class);
+// $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+
+
+// connect the config folder to boostrap
+// $app->configure('auth');
+
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+// $app->routeMiddleware([
+//     'auth' => App\Http\Middleware\Authenticate::class,
+//     ]);
+    $app->register(App\Providers\AppServiceProvider::class);
+    $app->register(App\Providers\AuthServiceProvider::class);
+    $app->register(App\Providers\EventServiceProvider::class);
+    
+    
+$app->register(Irazasyed\Larasupport\Providers\ArtisanServiceProvider::class);
+
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+    'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
